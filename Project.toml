@@ -1,0 +1,17 @@
+name = "ExcelWriter"
+uuid = "ff294ebf-79f7-4add-9861-08cd955a854f"
+authors = ["bernhard"]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+
+[compat]
+julia = "^1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
