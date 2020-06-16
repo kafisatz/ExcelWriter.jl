@@ -14,3 +14,18 @@
 -->
 
 This is a experimental and very rudimentary wrapper for the Python package xlsxwriter
+
+A minimal example is shown below.
+Please consider the documentation of the Python package `xlsxwriter` for details on the argument 3 and 4 of the function `writeExcel` 
+
+```
+adir=mktempdir()
+fi=joinpath(adir,"testfile1.xlsx")
+
+adf=DataFrame(rand(4,4))
+xlsheet1=ExcelSheet("mySheet",adf)
+xlsheet2=ExcelSheet("myOtherSheet",DataFrame(rand(6,4)))
+xlData=ExcelData([xlsheet1,xlsheet2])
+
+writeExcel(xlData,fi,true,false)
+```
