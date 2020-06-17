@@ -10,7 +10,7 @@ notifications:
   email: false
 
 script:
-  - julia -e 'try;import Pkg;println("");println("Building PyCall for Travis...");ENV["PYTHON"]="";Pkg.build("Conda");Pkg.build("PyCall");using PyCall;global const pyModPandas = PyNULL();global const pyModnumpy = PyNULL();global const pyModPandas = PyNULL();copy!(pyModPandas, pyimport_conda("pandas","pandas"));copy!(pyModxlsxwriter, pyimport_conda("xlsxwriter","xlsxwriter"));copy!(pyModnumpy, PyCall.pyimport_conda("numpy","numpy"));writer=pyModPandas[:ExcelWriter]("blabla_deletme.xlsx", engine = "xlsxwriter");@show typeof(writer);println("If this worked, then pandas and xlsxwriter should be installed");println("Done building PyCall.Restarting Julia...");catch e;println("this did not work");@show e;end;exit();'
+  - julia -e 'try;import Pkg;println("");println("Building PyCall for Travis...");ENV["PYTHON"]="";Pkg.build("Conda");Pkg.build("PyCall");using PyCall;global const pyModPandas = PyNULL();global const pyModnumpy = PyNULL();copy!(pyModPandas, pyimport_conda("pandas","pandas"));copy!(pyModxlsxwriter, pyimport_conda("xlsxwriter","xlsxwriter"));copy!(pyModnumpy, PyCall.pyimport_conda("numpy","numpy"));writer=pyModPandas[:ExcelWriter]("blabla_deletme.xlsx", engine = "xlsxwriter");@show typeof(writer);println("If this worked, then pandas and xlsxwriter should be installed");println("Done building PyCall.Restarting Julia...");catch e;println("this did not work");@show e;end;exit();'
   - julia -e 'using Pkg; Pkg.activate(pwd());Pkg.instantiate();Pkg.test()'    
                
 after_success:
