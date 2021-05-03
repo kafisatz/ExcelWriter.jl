@@ -44,18 +44,19 @@ function writeExcel(excelData::ExcelData,xlFile::T,write_header::Bool,write_inde
 	#writing an Excel file seems very slow if the file already exists!
 	isfile(xlFile)&&rm(xlFile)
 	
-	writer=writeDFtoExcel(excelData,xlFile,0,0,write_header,write_index)
+	writer = writeDFtoExcel(excelData,xlFile,0,0,write_header,write_index)
 	#workbook = writer.book
     #=
 		#Plot charts	
 		for c in excelData.charts
-			sheetWhereChartIsLocated=c.sheet		
+			sheetWhereChartIsLocated = c.sheet		
 			worksheet = writer.sheets[sheetWhereChartIsLocated]
 			addChartToWorkbook!(workbook,worksheet,c.chartDict,c.location);
 		end
     =#
 	#save (=write) Excel file and close it	
 	writer.save()
+    writer.close()
 	println(xlFile)
 	return nothing
 end
