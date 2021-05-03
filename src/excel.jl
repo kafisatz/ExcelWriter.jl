@@ -26,6 +26,20 @@ function create_custom_dict(df::DataFrame)
 end
 
 export writeExcel 
+function writeExcel(table,xlFile::T,write_header::Bool,write_index::Bool) where {T <: AbstractString}
+    #convert table to ExcelData
+    table
+    local df
+    if isa(table,DataFrame)
+        df = table
+    else
+        df=DataFrame(table,:auto)
+    end
+    xlsheet1=ExcelSheet("sheet1",df)    
+    xlData=ExcelData([xlsheet1])
+    return writeExcel(xlData,xlFile,write_header,write_index)
+end
+
 function writeExcel(excelData::ExcelData,xlFile::T,write_header::Bool,write_index::Bool) where {T <: AbstractString}
 	#writing an Excel file seems very slow if the file already exists!
 	isfile(xlFile)&&rm(xlFile)

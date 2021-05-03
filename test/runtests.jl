@@ -2,20 +2,34 @@ using ExcelWriter
 using Test
 using DataFrames
 
-
 @warn("Tests are currently rudimentary and currently only test whether the functions can be called (without running into any errors)")
 
 @testset "Smoke Tests" begin
     adir=mktempdir()
     fi=joinpath(adir,"testfile1.xlsx")
+    fi2=joinpath(adir,"testfile2.xlsx")
+    fi3=joinpath(adir,"testfile3.xlsx")
 
-    adf=DataFrame(rand(4,4))
+
+    adf=DataFrame(rand(4,4),:auto)
     xlsheet1=ExcelSheet("mySheet",adf)
-    xlsheet2=ExcelSheet("myOtherSheet",DataFrame(rand(6,4)))
+    xlsheet2=ExcelSheet("myOtherSheet",DataFrame(rand(6,4),:auto))
     xlData=ExcelData([xlsheet1,xlsheet2])
 
     writeExcel(xlData,fi,true,false)
     if isfile(fi)
+        @test true
+    end
+
+    #write Matrix or some DF
+    writeExcel(adf,fi2,true,false)
+    if isfile(fi2)
+        @test true
+    end
+
+    #write a matrix 
+    writeExcel(rand(4,4),fi3,true,false)
+    if isfile(fi3)
         @test true
     end
 
