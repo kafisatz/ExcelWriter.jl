@@ -1,5 +1,5 @@
 @info("ExcelWriter: running build.jl")
-import Pkg 
+using Pkg 
 
 try
     println("")
