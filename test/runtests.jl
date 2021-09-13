@@ -41,8 +41,17 @@ using DataFrames
         fi2=joinpath(adir,"testfileLarge.xlsx")
         @show sz
         @time writeExcel(xlDataLarge,fi2,true,false)
+        @time writeExcel(xlDataLarge,fi2,true,false,printfilename = true)
         if isfile(fi2)
             @test true
         end
+
+        isfile(fi2) && rm(fi2)
+        @info("Running tests without printing filename:")
+        @time writeExcel(xlDataLarge,fi2,true,false,printfilename = false)
+        if isfile(fi2)
+            @test true
+        end
+
     end
 end
