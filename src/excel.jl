@@ -54,9 +54,8 @@ function writeExcel(excelData::ExcelData,xlFile::T,write_header::Bool,write_inde
 			addChartToWorkbook!(workbook,worksheet,c.chartDict,c.location);
 		end
     =#
-	#save (=write) Excel file and close it	
-	writer.save()
-    writer.close()
+	
+	writer.close()
 	if printfilename 
         println(xlFile)
     end
