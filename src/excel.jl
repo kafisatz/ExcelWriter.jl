@@ -77,3 +77,9 @@ function writeDFtoExcel(excelData::ExcelData,existingFile::T,row::Int,col::Int,w
 	end
 	return writer
 end
+
+export sheetnames 
+function sheetnames(excelData::ExcelData)
+    nsheets = length(excelData.sheets)
+    return map(i->excelData.sheets[i].name,1:nsheets)
+end

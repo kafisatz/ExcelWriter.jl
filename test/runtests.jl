@@ -16,6 +16,8 @@ using DataFrames
     xlsheet2=ExcelSheet("myOtherSheet",DataFrame(rand(6,4),:auto))
     xlData=ExcelData([xlsheet1,xlsheet2])
 
+    @assert isequal(sheetnames(xlData), ["mySheet","myOtherSheet"])
+
     writeExcel(xlData,fi,true,false)
     if isfile(fi)
         @test true
