@@ -2,7 +2,7 @@ using ExcelWriter
 using Test
 using DataFrames
 
-@warn("Tests are currently rudimentary and currently only test whether the functions can be called (without running into any errors)")
+@warn("Tests are currently rudimentary and only test whether the functions can be called (without running into any errors)")
 
 @testset "Smoke Tests" begin
     adir=mktempdir()
