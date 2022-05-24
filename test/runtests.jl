@@ -5,16 +5,16 @@ using DataFrames
 @warn("Tests are currently rudimentary and only test whether the functions can be called (without running into any errors)")
 
 @testset "Smoke Tests" begin
-    adir=mktempdir()
-    fi=joinpath(adir,"testfile1.xlsx")
-    fi2=joinpath(adir,"testfile2.xlsx")
-    fi3=joinpath(adir,"testfile3.xlsx")
+    adir = mktempdir()
+    fi = joinpath(adir,"testfile1.xlsx")
+    fi2 = joinpath(adir,"testfile2.xlsx")
+    fi3 = joinpath(adir,"testfile3.xlsx")
 
 
-    adf=DataFrame(rand(4,4),:auto)
-    xlsheet1=ExcelSheet("mySheet",adf)
-    xlsheet2=ExcelSheet("myOtherSheet",DataFrame(rand(6,4),:auto))
-    xlData=ExcelData([xlsheet1,xlsheet2])
+    adf = DataFrame(rand(4,4),:auto)
+    xlsheet1 = ExcelSheet("mySheet",adf)
+    xlsheet2 = ExcelSheet("myOtherSheet",DataFrame(rand(6,4),:auto))
+    xlData = ExcelData([xlsheet1,xlsheet2])
 
     @assert isequal(sheetnames(xlData), ["mySheet","myOtherSheet"])
 
