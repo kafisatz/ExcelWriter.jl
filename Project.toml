@@ -1,7 +1,7 @@
 name = "ExcelWriter"
 uuid = "ff294ebf-79f7-4add-9861-08cd955a854f"
 authors = ["bernhard"]
-version = "0.1.9"
+version = "0.1.10"
 
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
