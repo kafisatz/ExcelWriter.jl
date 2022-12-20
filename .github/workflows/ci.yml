@@ -30,9 +30,8 @@ jobs:
         #    version: '1'
         #    arch: x86
     # Service containers to run with `container-job`
-    services:
+    #services:
       # Label used to access the service container      
-
     steps:    
       - name: Check out repo
         uses: actions/checkout@v2
