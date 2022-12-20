@@ -6,12 +6,8 @@
 ![Lifecycle](https://img.shields.io/badge/lifecycle-retired-orange.svg)
 ![Lifecycle](https://img.shields.io/badge/lifecycle-archived-red.svg)
 ![Lifecycle](https://img.shields.io/badge/lifecycle-dormant-blue.svg) -->
-[![Build Status](https://travis-ci.com/kafisatz/ExcelWriter.jl.svg?branch=master)](https://travis-ci.com/kafisatz/ExcelWriter.jl)
+[![CI Testing](https://github.com/kafisatz/ExcelWriter.jl/workflows/CI/badge.svg)](https://github.com/kafisatz/ExcelWriter.jl/actions?query=workflow%3ACI+branch%3Amain)
 [![codecov.io](http://codecov.io/github/kafisatz/ExcelWriter.jl/coverage.svg?branch=master)](http://codecov.io/github/kafisatz/ExcelWriter.jl?branch=master)
-<!--
-[![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://kafisatz.github.io/ExcelWriter.jl/stable)
-[![Documentation](https://img.shields.io/badge/docs-master-blue.svg)](https://kafisatz.github.io/ExcelWriter.jl/dev)
--->
 
 This is a experimental and very rudimentary wrapper for the Python package xlsxwriter
 
