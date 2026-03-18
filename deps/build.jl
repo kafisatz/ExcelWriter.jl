@@ -22,7 +22,7 @@ try
     @info("ExcelWriter build: testing pyModPandas.ExcelWriter...") 
     writer = pyModPandas.ExcelWriter("blabla_deletme.xlsx", engine="xlsxwriter")
     @show typeof(writer)
-    println("If this worked, then pandas and xlsxwriter should be installed propoerly");
+    println("If this worked, then pandas and xlsxwriter should be installed properly and the build should be successful.");
     println("Done building PyCall.")
 
 catch e
